@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>
+
+        Student Validation Form Exp7
+
+    </title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+    <script type="text/javascript">
+
+        var app = angular.module('formApp', []);
+
+        app.controller('formCtrl', function ($scope) {
+
+            $scope.sendForm = function () {
+
+                $scope.msg = "Thank you for registering!";
+
+            };
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+    <div ng-app="formApp" ng-controller="formCtrl">
+
+        <form name="personForm" ng-submit="sendForm()">
+
+            First Name:<input type="text" name="firstname" ng-model="person.fname" required />
+
+            <span ng-show="personForm.firstname.$error.required"> Required! </span> <br /><br />
+
+            Last Name:<input type="text" name="lastname" ng-model="person.lname" required />
+
+            <span ng-show="personForm.lastname.$error.required"> Required! </span> <br /><br />
+
+            Email:<input type="text" name="email" ng-model="person.email" required />
+
+            <span ng-show="personForm.email.$error.required"> Required! </span> <br /><br />
+
+            Branch:<input type="text" name="branch" ng-model="person.branch" required />
+
+            <span ng-show="personForm.branch.$error.required"> Required! </span> <br /><br />
+
+            <button type="submit">Submit</button><br /><br />
+
+            <span>{{msg}}</span>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
